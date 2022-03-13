@@ -2,7 +2,7 @@ import propTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-export class CardAlbum extends Component {
+class CardAlbum extends Component {
   render() {
     const { collectionId, artworkUrl100, artistName, collectionName } = this.props;
     return (

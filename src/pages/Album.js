@@ -37,9 +37,6 @@ class Album extends Component {
                 index > 0
                 && (<MusicCard
                   key={ song.trackId }
-                  // trackName={ song.trackName }
-                  // previewUrl={ song.previewUrl }
-                  // trackId={ song.trackId }
                   track={ song }
                 />)
               ))}
