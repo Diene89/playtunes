@@ -16,6 +16,7 @@ class Album extends Component {
   async componentDidMount() {
     const context = this;
     const songs = await getMusics(context.props.match.params.id);
+    console.log(songs);
     this.setState({
       songs,
       loading: false,
@@ -39,6 +40,7 @@ class Album extends Component {
                   key={ song.trackId }
                   trackName={ song.trackName }
                   previewUrl={ song.previewUrl }
+                  trackId={ song.trackId }
                 />)
               ))}
             </div>
