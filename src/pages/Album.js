@@ -16,7 +16,6 @@ class Album extends Component {
   async componentDidMount() {
     const context = this;
     const songs = await getMusics(context.props.match.params.id);
-    console.log(songs);
     this.setState({
       songs,
       loading: false,
@@ -38,9 +37,10 @@ class Album extends Component {
                 index > 0
                 && (<MusicCard
                   key={ song.trackId }
-                  trackName={ song.trackName }
-                  previewUrl={ song.previewUrl }
-                  trackId={ song.trackId }
+                  // trackName={ song.trackName }
+                  // previewUrl={ song.previewUrl }
+                  // trackId={ song.trackId }
+                  track={ song }
                 />)
               ))}
             </div>

@@ -1,20 +1,38 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import Loading from './Loading';
+import { addSong } from '../services/favoriteSongsAPI';
 
-export class MusicCard extends Component {
+class MusicCard extends Component {
   constructor() {
     super();
 
+    this.state = {
+      loading: false,
+      checked: false,
+    };
+
   }
 
-  handleCheckFavorite
+  handleCheckFavorite = async (track) => {
+    if (!localStorage.getItem('favorite_songs').includes(track.trackId)) {
+      this.setState({
+        loading: true,
+      });
+      await addSong(track);
+      this.setState({
+        loading: false,
+      })
+    }
+  }
 
   render() {
-    const { trackName, previewUrl, trackId } = this.props;
+    const { track } = this.props;
+    const { checked, loading } = this.state;
     return (
       <div>
-        <h3>{trackName}</h3>
-        <audio data-testid="audio-component" src={ previewUrl } controls>
+        <h3>{track.trackName}</h3>
+        <audio data-testid="audio-component" src={ track.previewUrl } controls>
           <track kind="captions" />
           O seu navegador não suporta o elemento
           <code>audio</code>
@@ -23,9 +41,12 @@ export class MusicCard extends Component {
           Favorita
           <input
             type="checkbox"
-            data-testid={ `checkbox-music-${trackId}` }
+            data-testid={ `checkbox-music-${track.trackId}` }
+            checked={ localStorage.getItem('favorite_songs').includes(track.trackId) }
+            onChange={ () => { this.handleCheckFavorite(track) } }
           />
         </label>
+        {loading && <Loading />}
       </div>
     );
   }
