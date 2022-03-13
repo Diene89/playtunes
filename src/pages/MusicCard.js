@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Loading from './Loading';
-import { addSong } from '../services/favoriteSongsAPI';
+import { addSong, removeSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
 
 class MusicCard extends Component {
   constructor() {
@@ -14,12 +14,24 @@ class MusicCard extends Component {
 
   }
 
+  componentDidMount() {
+    getFavoriteSongs();
+  }
+
   handleCheckFavorite = async (track) => {
     if (!localStorage.getItem('favorite_songs').includes(track.trackId)) {
       this.setState({
         loading: true,
       });
       await addSong(track);
+      this.setState({
+        loading: false,
+      })
+    } else {
+      this.setState({
+        loading: true,
+      });
+      await removeSong(track);
       this.setState({
         loading: false,
       })
