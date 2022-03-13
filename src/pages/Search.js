@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import { Loading } from './Loading';
 import searchAlbumsAPIs from '../services/searchAlbumsAPI';
+import CardAlbum from './CardAlbum';
 
 class Search extends Component {
   constructor() {
@@ -43,7 +43,7 @@ class Search extends Component {
   }
 
   render() {
-    const { isButtonDisabled, artistName,
+    const { isButtonDisabled,
       loading, albumsList, artistSearch, search } = this.state;
     return (
       <div data-testid="page-search">
@@ -56,6 +56,7 @@ class Search extends Component {
                 type="text"
                 data-testid="search-artist-input"
                 onChange={ this.handleChange }
+                placeHolder="Artista"
               />
               <button
                 type="submit"
@@ -79,17 +80,13 @@ class Search extends Component {
           : (
             <div className="cards">
               {albumsList.map((album) => (
-                <div key={ album.collectionId } className="cardAlbum">
-                  <img src={ album.artworkUrl100 } alt={ album.collectionName } />
-                  <h2 className="title">{album.collectionName}</h2>
-                  <p className="artistName">{artistName}</p>
-                  <Link
-                    to={ `/album/${album.collectionId}` }
-                    data-testid={ `link-to-album-${album.collectionId}` }
-                  >
-                    Ver album
-                  </Link>
-                </div>
+                <CardAlbum
+                  key={ album.collectionId }
+                  artworkUrl100={ album.artworkUrl100 }
+                  collectionName={ album.collectionName }
+                  artistName={ album.artistName }
+                  collectionId={ album.collectionId }
+                />
               ))}
             </div>
           )}
