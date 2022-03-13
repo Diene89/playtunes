@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import Loading from './Loading';
 import { addSong, removeSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
+import { Loading } from './Loading';
 
 class MusicCard extends Component {
   constructor() {
@@ -9,9 +9,7 @@ class MusicCard extends Component {
 
     this.state = {
       loading: false,
-      checked: false,
     };
-
   }
 
   componentDidMount() {
@@ -26,7 +24,7 @@ class MusicCard extends Component {
       await addSong(track);
       this.setState({
         loading: false,
-      })
+      });
     } else {
       this.setState({
         loading: true,
@@ -34,17 +32,18 @@ class MusicCard extends Component {
       await removeSong(track);
       this.setState({
         loading: false,
-      })
+      });
     }
   }
 
   render() {
     const { track } = this.props;
-    const { checked, loading } = this.state;
+    const { trackId, trackName, previewUrl } = track;
+    const { loading } = this.state;
     return (
       <div>
-        <h3>{track.trackName}</h3>
-        <audio data-testid="audio-component" src={ track.previewUrl } controls>
+        <h3>{trackName}</h3>
+        <audio data-testid="audio-component" src={ previewUrl } controls>
           <track kind="captions" />
           O seu navegador não suporta o elemento
           <code>audio</code>
@@ -53,9 +52,9 @@ class MusicCard extends Component {
           Favorita
           <input
             type="checkbox"
-            data-testid={ `checkbox-music-${track.trackId}` }
-            checked={ localStorage.getItem('favorite_songs').includes(track.trackId) }
-            onChange={ () => { this.handleCheckFavorite(track) } }
+            data-testid={ `checkbox-music-${trackId}` }
+            checked={ localStorage.getItem('favorite_songs').includes(trackId) }
+            onChange={ () => this.handleCheckFavorite(track) }
           />
         </label>
         {loading && <Loading />}
@@ -65,9 +64,7 @@ class MusicCard extends Component {
 }
 
 MusicCard.propTypes = {
-  trackName: PropTypes.string.isRequired,
-  previewUrl: PropTypes.string.isRequired,
-  trackId: PropTypes.number.isRequired,
+  track: PropTypes.objectOf(PropTypes.any).isRequired,
 };
 
 export default MusicCard;
