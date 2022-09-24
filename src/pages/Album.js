@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import getMusics from '../services/musicsAPI';
 import { Loading } from './Loading';
 import MusicCard from './MusicCard';
+import '../style/Album.css';
 
 class Album extends Component {
   constructor() {
@@ -30,7 +31,7 @@ class Album extends Component {
         {loading
           ? <Loading />
           : (
-            <div>
+            <div className="container-div">
               <h3 data-testid="artist-name">{songs[0].artistName}</h3>
               <h2 data-testid="album-name">{songs[0].collectionName}</h2>
               {songs.map((song, index) => (

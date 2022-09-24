@@ -1,4 +1,33 @@
-body {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  background-color: #0f1011;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif, sans-serif;
+}
+
+:root {
+--color-blue-dark: #0f1011;
+--color-blue-dark-transparency: #0f101186;
+--color-pink: #ae01ff;
+--color-pink-transparency: #af01ff8e;
+--color-blue: #16048C;
+--color-green2: #68bb0a;
+--color-blue-light: #3F46BF;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+}
+
+/* body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -16,4 +45,4 @@ code {
   align-items: center;
   display: flex;
   justify-content: center;
-}
+} */

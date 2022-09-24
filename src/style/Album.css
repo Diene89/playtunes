@@ -1,0 +1,13 @@
+.container-div h3{
+    text-align: center;
+    color: rgba(163, 162, 175, 0.712);
+    padding: 30px;
+    font-size: 16px;
+}
+
+.container-div h2{
+    text-align: center;
+    color: #a5a8e4f6;
+    padding: 30px;
+    font-size: 14px;
+}

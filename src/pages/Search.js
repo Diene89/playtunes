@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import { Loading } from './Loading';
 import searchAlbumsAPIs from '../services/searchAlbumsAPI';
 import CardAlbum from './CardAlbum';
+import '../style/Search.css';
 
 class Search extends Component {
   constructor() {
@@ -31,7 +32,6 @@ class Search extends Component {
     this.setState({ loading: true },
       async () => {
         const albumsList = await searchAlbumsAPIs(artistName);
-        // albums.then(e=>console.log(e))
         this.setState({
           loading: false,
           albumsList,
@@ -48,48 +48,53 @@ class Search extends Component {
     return (
       <div data-testid="page-search">
         <Header />
-        {loading
-          ? <Loading />
-          : (
-            <form>
-              <input
-                type="text"
-                data-testid="search-artist-input"
-                onChange={ this.handleChange }
-                placeHolder="Artista"
-              />
-              <button
-                type="submit"
-                data-testid="search-artist-button"
-                disabled={ isButtonDisabled }
-                onClick={ this.getAlbum }
-              >
-                Pesquisar
-              </button>
-            </form>
-          )}
-        {artistSearch && (
-          <p>
-            Resultado de álbuns de:
-            {' '}
-            {search}
-          </p>
-        )}
-        {!albumsList.length
-          ? <h3>Nenhum álbum foi encontrado</h3>
-          : (
-            <div className="cards">
-              {albumsList.map((album) => (
-                <CardAlbum
-                  key={ album.collectionId }
-                  artworkUrl100={ album.artworkUrl100 }
-                  collectionName={ album.collectionName }
-                  artistName={ album.artistName }
-                  collectionId={ album.collectionId }
+        <div className="div-form col">
+          {loading
+            ? <Loading />
+            : (
+              <form className="search-form col">
+                <input
+                  className="search-input"
+                  type="text"
+                  data-testid="search-artist-input"
+                  onChange={ this.handleChange }
+                  placeHolder="Artista"
                 />
-              ))}
-            </div>
+                <button
+                  className="search-button"
+                  type="submit"
+                  data-testid="search-artist-button"
+                  disabled={ isButtonDisabled }
+                  onClick={ this.getAlbum }
+                >
+                  Pesquisar
+                </button>
+              </form>
+            )}
+          {artistSearch && (
+            <h3>
+              Resultado de álbuns de:
+              {' '}
+              {search}
+            </h3>
           )}
+          {!albumsList.length
+            ? <h3>Nenhum álbum foi encontrado</h3>
+            : (
+              <div className="cards row">
+                {albumsList.map((album) => (
+                  <CardAlbum
+                    key={ album.collectionId }
+                    artworkUrl100={ album.artworkUrl100 }
+                    collectionName={ album.collectionName }
+                    artistName={ album.artistName }
+                    collectionId={ album.collectionId }
+                  />
+                ))}
+              </div>
+            )}
+        </div>
+
       </div>
     );
   }

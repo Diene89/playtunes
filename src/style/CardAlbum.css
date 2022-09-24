@@ -1,0 +1,26 @@
+.cardAlbum {
+    margin-top: 30px;
+    align-items: center;
+    width: 20%;
+    padding: 1rem 3rem;
+}
+
+.cardAlbum h2 {
+    color: rgba(219, 218, 245, 0.829);
+    font-size: 16px;
+    text-align: center;
+}
+
+.cardAlbum p {
+    color: rgba(196, 127, 253, 0.829);
+    font-size: 14px;
+    text-align: center;
+}
+
+.cardAlbum img {
+    border: solid 3px var(--color-green2);
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-weight: 400;
+}

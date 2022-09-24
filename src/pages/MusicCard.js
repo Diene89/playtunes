@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { addSong, removeSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
 import { Loading } from './Loading';
+import '../style/MusicCard.css';
 
 class MusicCard extends Component {
   constructor() {
@@ -38,10 +39,11 @@ class MusicCard extends Component {
 
   render() {
     const { track } = this.props;
-    const { trackId, trackName, previewUrl } = track;
+    const { trackId, trackName, previewUrl, artworkUrl100, collectionName } = track;
     const { loading } = this.state;
     return (
-      <div>
+      <div className="song row">
+        <img src={ artworkUrl100 } alt={ collectionName } />
         <h3>{trackName}</h3>
         <audio data-testid="audio-component" src={ previewUrl } controls>
           <track kind="captions" />

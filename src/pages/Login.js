@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 import { createUser } from '../services/userAPI';
 import { Loading } from './Loading';
+import '../style/Login.css';
+import imgMusic from '../style/purpleMusic.png';
 
 class Login extends Component {
   constructor() {
@@ -43,18 +45,16 @@ class Login extends Component {
   render() {
     const { isButtonDisable, loading, redirect } = this.state;
     return (
-      <div data-testid="page-login">
+      <div className="login-container row" data-testid="page-login">
         { !loading ? (
-          <form>
-            <label htmlFor="loginName">
-              <input
-                data-testid="login-name-input"
-                type="text"
-                name="loginName"
-                onChange={ this.handleNameChange }
-                placeholder="Nome"
-              />
-            </label>
+          <form className="col">
+            <img src={ imgMusic } alt="imagem de fone" />
+            <input
+              data-testid="login-name-input"
+              type="text"
+              onChange={ this.handleNameChange }
+              placeholder="Nome"
+            />
             <input
               data-testid="login-submit-button"
               type="button"

@@ -1,0 +1,24 @@
+  .song {
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 30px;
+    color: var(--color-green3);
+    display: flex;
+    margin: 10px;
+    transition: 0.15s;
+    width: 90%
+  }
+
+  .song:hover {
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+    transform: scale(1.05);
+  }
+  
+  .song audio {
+    padding: 5px 10px;
+  }
+  
+  .song label {
+    align-items: center;
+    display: flex;
+  }

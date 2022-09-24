@@ -1,0 +1,52 @@
+.header {
+    justify-content: space-around;
+    padding: 1rem 3rem;
+}
+
+.link1, .link2, .link3 {
+    padding: 15px;
+    border-radius: 50%;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+}
+
+.link1:hover {
+    scale: 1.1;
+    transition: 0.7s
+  }
+
+.link1 {
+    background-color: var(--color-blue-light);
+}
+
+.link2:hover {
+    scale: 1.1;
+    transition: 0.7s
+  }
+
+.link2 {
+    background-color: var(--color-pink);
+}
+
+.link3:hover {
+    scale: 1.1;
+    transition: 0.7s
+  }
+
+.link3 {
+    background-color: var(--color-green2);
+}
+  
+.user {
+    justify-content: center;
+    color: white;
+    background-color: var(--color-pink-transparency);
+    width: 100%;
+    padding: 12px;
+}
+
+.user h2 {
+    background: none;
+}
+  
