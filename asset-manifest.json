@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/playtunes/static/css/main.365e79c9.chunk.css",
+    "main.js": "/playtunes/static/js/main.8fffda23.chunk.js",
+    "main.js.map": "/playtunes/static/js/main.8fffda23.chunk.js.map",
+    "runtime-main.js": "/playtunes/static/js/runtime-main.f2596a92.js",
+    "runtime-main.js.map": "/playtunes/static/js/runtime-main.f2596a92.js.map",
+    "static/js/2.823fca39.chunk.js": "/playtunes/static/js/2.823fca39.chunk.js",
+    "static/js/2.823fca39.chunk.js.map": "/playtunes/static/js/2.823fca39.chunk.js.map",
+    "index.html": "/playtunes/index.html",
+    "static/css/main.365e79c9.chunk.css.map": "/playtunes/static/css/main.365e79c9.chunk.css.map",
+    "static/js/2.823fca39.chunk.js.LICENSE.txt": "/playtunes/static/js/2.823fca39.chunk.js.LICENSE.txt",
+    "static/media/purpleMusic.a215c12d.png": "/playtunes/static/media/purpleMusic.a215c12d.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f2596a92.js",
+    "static/js/2.823fca39.chunk.js",
+    "static/css/main.365e79c9.chunk.css",
+    "static/js/main.8fffda23.chunk.js"
+  ]
+}
